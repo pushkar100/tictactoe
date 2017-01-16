@@ -1,0 +1,51 @@
+table {
+    border: 1px solid #dfe1e8;
+    border-collapse: collapse;
+    margin: 50px auto;
+}
+
+td {
+    border: 1px solid #dfe1e8;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+button {
+    background-color: #b2dcff;
+    border: 0;
+    height: 50px;
+    width: 50px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.user,
+.computer {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Verdana;
+}
+
+.computer {
+    color: #c00;
+}
+
+.user {
+    color: #BADA55;
+}
+
+.result {
+    width: 250px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin: 5px auto;
+    color: #3f51b5;
+    font-family: Verdana;
+    display: none;
+}
