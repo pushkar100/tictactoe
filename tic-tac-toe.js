@@ -176,37 +176,3 @@ TicTacToe.prototype.getComputerLastMove = function() {
 TicTacToe.prototype.getUserLastMove = function() {
     return this.lastUserInputIndex;
 };
-
-// ----- Testing ----- :
-
-var game = new TicTacToe(),
-    firstMoveIndex;
-game.computerMove();
-firstMoveIndex = game.lastComputerInputIndex;
-$('button[value=' + firstMoveIndex + ']').closest('td').html('<span class="computer">' + game.input.computer + '</span>');
-
-// ----- UI Functions and Events -----:
-$('button').on('click', function() {
-    var $this = $(this),
-        index = $this.val(),
-        userMoveIndex = game.userMove(index),
-        computerMoveIndex;
-
-    if (!game.gameOn) {
-        return false;
-    } else if (userMoveIndex === -1) {
-        alert('Cannot input in an occupied cell');
-    } else {
-        $this.closest('td').html('<span class="user">' + game.input.user + '</span>');
-    }
-    if (game.gameOverTest(game.input.user)) {
-        $('.result').css('display', 'block').text('You have won!');
-    } else {
-        game.computerMove();
-        computerMoveIndex = game.lastComputerInputIndex;
-        $('button[value=' + computerMoveIndex + ']').closest('td').html('<span class="computer">' + game.input.computer + '</span>');
-        if (game.gameOverTest(game.input.computer)) {
-            $('.result').css('display', 'block').text('You have lost!');
-        }
-    }
-});

@@ -49,3 +49,20 @@ button:hover {
     font-family: Verdana;
     display: none;
 }
+
+.options-wrpr {
+    width: 660px;
+    margin: 20px auto;
+}
+
+.options-wrpr div {
+    width: 32%;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    padding: 5px 0;
+    font-family: sans-serif;
+    background: #90b715;
+    text-transform: uppercase;
+}

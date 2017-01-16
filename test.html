@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    <div class="options-wrpr">
+        <div class="human-first first-select">I play first</div>
+        <div class="computer-first first-select">Computer plays first</div>
+        <div class="reset">Restart game</div>
+    </div>
     <table>
         <tr>
             <td class="0">
@@ -48,6 +53,56 @@
     <div class="result">You have won!</div>
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="tic-tac-toe.js"></script>
-</body>
+    <script>
+        // ----- Testing ----- :
+        function startGame(humanFirst) {
+            var game = new TicTacToe();
 
+            if(!humanFirst) {
+                game.computerMove();
+                $('button[value=' + game.lastComputerInputIndex + ']').closest('td').html('<span class="computer">' + game.input.computer + '</span>');
+            }
+            
+            // ----- UI Functions and Events -----:
+            $('button').on('click', function() {
+                var $this = $(this),
+                    index = $this.val(),
+                    userMoveIndex = game.userMove(index),
+                    computerMoveIndex;
+
+                if (!game.gameOn) {
+                    return false;
+                } else if (userMoveIndex === -1) {
+                    alert('Cannot input in an occupied cell');
+                } else {
+                    $this.closest('td').html('<span class="user">' + game.input.user + '</span>');
+                }
+                if (game.gameOverTest(game.input.user)) {
+                    $('.result').css('display', 'block').text('You have won!');
+                } else {
+                    game.computerMove();
+                    computerMoveIndex = game.lastComputerInputIndex;
+                    $('button[value=' + computerMoveIndex + ']').closest('td').html('<span class="computer">' + game.input.computer + '</span>');
+                    if (game.gameOverTest(game.input.computer)) {
+                        $('.result').css('display', 'block').text('You have lost!');
+                    }
+                }
+            });
+        }
+
+        $('.computer-first').on('click', function() {
+            startGame(0);
+            $('.first-select').hide();
+        });
+
+        $('.human-first').on('click', function() {
+            startGame(1);
+            $('.first-select').hide();
+        });
+
+        $('.reset').on('click', function() {
+            window.location.reload();
+        });
+    </script>
+</body>
 </html>
