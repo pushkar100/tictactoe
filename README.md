@@ -1,11 +1,9 @@
-# nonAI-tictactoe
+# Tic Tac Toe
 
-A simple TIC TAC TOE game written in Javascript.
+An interactive Tic-Tac-Toe game written in Javascript. The gamer gets to play against a computer. Try to beat it!
 
-It does not use any AI or ML techniques such as the MiniMax Theorem.
-Instead, it uses a basic algorithm that takes care of all cases.
+**Note**: It does not use any AI or ML techniques. Instead, it uses a basic algorithm that takes care of all cases.
 
-The `tic-tac-toe.js` file contains actual logic for the computer player.
+## Demo
 
-In order to play on the browser, the project includes some css styles and html markup.
-Download and open `test.html` to play against the computer.
+[Play](http://www.pushkardk.com/tictactoe/test.html)
